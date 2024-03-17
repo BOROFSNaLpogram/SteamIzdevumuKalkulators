@@ -1,0 +1,186 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbs6usdi7c6h"]
+
+[ext_resource type="Script" path="res://App/VBoxContainerGames.gd" id="1_17gr2"]
+[ext_resource type="FontFile" uid="uid://bqg8h03xyupd5" path="res://Fonts/Nunito-Bold.ttf" id="1_qx1t5"]
+[ext_resource type="Script" path="res://App/VBoxContainerSkins.gd" id="3_6a6we"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0vit8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gkxcf"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainerGames" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("1_17gr2")
+
+[node name="Node" type="Node" parent="MarginContainer/HBoxContainer/VBoxContainerGames"]
+
+[node name="HTTPRequest" type="HTTPRequest" parent="MarginContainer/HBoxContainer/VBoxContainerGames/Node"]
+
+[node name="HBoxContainerLabel" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainerGames"]
+layout_mode = 2
+
+[node name="ButtonBack" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainerGames/HBoxContainerLabel"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_qx1t5")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0vit8")
+text = "X"
+
+[node name="PanelContainerLabel" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainerGames/HBoxContainerLabel"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RichTextLabelTitle" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainerGames/HBoxContainerLabel/PanelContainerLabel"]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_qx1t5")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]Spēles"
+
+[node name="LineEnterGameID" type="LineEdit" parent="MarginContainer/HBoxContainer/VBoxContainerGames"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_qx1t5")
+theme_override_font_sizes/font_size = 24
+placeholder_text = "Ievadiet ID"
+alignment = 1
+
+[node name="ButtonAddGame" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainerGames"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_qx1t5")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0vit8")
+text = "Pievienot
+"
+
+[node name="ItemListGames" type="ItemList" parent="MarginContainer/HBoxContainer/VBoxContainerGames"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gkxcf")
+
+[node name="HBoxContainerButtons" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainerGames"]
+layout_mode = 2
+
+[node name="ButtonClear" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainerGames/HBoxContainerButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_qx1t5")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0vit8")
+text = "Attīrīt"
+
+[node name="ButtonRemove" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainerGames/HBoxContainerButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_qx1t5")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0vit8")
+text = "Noņemt"
+
+[node name="ItemListCost" type="ItemList" parent="MarginContainer/HBoxContainer/VBoxContainerGames"]
+custom_minimum_size = Vector2(0, 62)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gkxcf")
+
+[node name="VBoxContainerSkins" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("3_6a6we")
+
+[node name="PanelContainerLabel" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainerSkins"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RichTextLabelTitle" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainerSkins/PanelContainerLabel"]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_qx1t5")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]Ieroču kamoflāžas"
+
+[node name="HBoxContainerInputs" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainerSkins"]
+layout_mode = 2
+
+[node name="LineEnterSkinName" type="LineEdit" parent="MarginContainer/HBoxContainer/VBoxContainerSkins/HBoxContainerInputs"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_qx1t5")
+theme_override_font_sizes/font_size = 24
+placeholder_text = "Ievadiet nosaukumu"
+alignment = 1
+
+[node name="LineEnterSkinPrice" type="LineEdit" parent="MarginContainer/HBoxContainer/VBoxContainerSkins/HBoxContainerInputs"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_qx1t5")
+theme_override_font_sizes/font_size = 24
+placeholder_text = "Ievadiet cenu"
+alignment = 1
+
+[node name="ButtonAddSkin" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainerSkins"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_qx1t5")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0vit8")
+text = "Pievienot
+"
+
+[node name="ItemListSkins" type="ItemList" parent="MarginContainer/HBoxContainer/VBoxContainerSkins"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gkxcf")
+
+[node name="HBoxContainerButtons" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainerSkins"]
+layout_mode = 2
+
+[node name="ButtonClear" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainerSkins/HBoxContainerButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_qx1t5")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0vit8")
+text = "Attīrīt"
+
+[node name="ButtonRemove" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainerSkins/HBoxContainerButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_qx1t5")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0vit8")
+text = "Noņemt"
+
+[connection signal="request_completed" from="MarginContainer/HBoxContainer/VBoxContainerGames/Node/HTTPRequest" to="MarginContainer/HBoxContainer/VBoxContainerGames" method="_on_http_request_request_completed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainerGames/HBoxContainerLabel/ButtonBack" to="MarginContainer/HBoxContainer/VBoxContainerGames" method="_on_button_back_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainerGames/ButtonAddGame" to="MarginContainer/HBoxContainer/VBoxContainerGames" method="_on_button_add_game_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainerGames/HBoxContainerButtons/ButtonClear" to="MarginContainer/HBoxContainer/VBoxContainerGames" method="_on_button_clear_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainerGames/HBoxContainerButtons/ButtonRemove" to="MarginContainer/HBoxContainer/VBoxContainerGames" method="_on_button_remove_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainerSkins/ButtonAddSkin" to="MarginContainer/HBoxContainer/VBoxContainerSkins" method="_on_button_add_skin_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainerSkins/HBoxContainerButtons/ButtonClear" to="MarginContainer/HBoxContainer/VBoxContainerSkins" method="_on_button_clear_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainerSkins/HBoxContainerButtons/ButtonRemove" to="MarginContainer/HBoxContainer/VBoxContainerSkins" method="_on_button_remove_pressed"]

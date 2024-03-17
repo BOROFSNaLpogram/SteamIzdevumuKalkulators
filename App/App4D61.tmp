@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbs6usdi7c6h"]
+
+[ext_resource type="Script" path="res://App/APITest.gd" id="1_m64dm"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("1_m64dm")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="Node"]
+
+[connection signal="request_completed" from="Node/HTTPRequest" to="Node" method="_on_http_request_request_completed"]

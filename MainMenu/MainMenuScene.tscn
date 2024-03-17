@@ -1,0 +1,415 @@
+[gd_scene load_steps=8 format=3 uid="uid://cc1k4447c3vkn"]
+
+[ext_resource type="FontFile" uid="uid://bqg8h03xyupd5" path="res://Fonts/Nunito-Bold.ttf" id="1_5c1fb"]
+[ext_resource type="Script" path="res://MainMenu/MainMenuButtons.gd" id="2_ek1fu"]
+[ext_resource type="Script" path="res://MainMenu/SignUp.gd" id="3_h4ct1"]
+[ext_resource type="Script" path="res://MainMenu/SignIn.gd" id="4_bgb1w"]
+
+[sub_resource type="Gradient" id="Gradient_41qsn"]
+colors = PackedColorArray(0.0666667, 0.0980392, 0.180392, 1, 0.00784314, 0.458824, 0.65098, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7ukd5"]
+gradient = SubResource("Gradient_41qsn")
+width = 160
+height = 90
+fill_from = Vector2(1, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fyoak"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRectBackground" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_7ukd5")
+
+[node name="RichTextLabelTitle" type="RichTextLabel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_5c1fb")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]\"Steam\" Spēļu Izdevumu Kalkulators"
+
+[node name="ErrorMessages" type="Control" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="ControlNoAccount" type="Control" parent="MarginContainer/ErrorMessages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.000202686
+
+[node name="PanelContainerBackground" type="PanelContainer" parent="MarginContainer/ErrorMessages/ControlNoAccount"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -180.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ErrorMessages/ControlNoAccount"]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -21.0
+offset_right = 180.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabelTitle" type="RichTextLabel" parent="MarginContainer/ErrorMessages/ControlNoAccount/VBoxContainer"]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_5c1fb")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]Nav lietotājs"
+
+[node name="ButtonCancel" type="Button" parent="MarginContainer/ErrorMessages/ControlNoAccount/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5c1fb")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fyoak")
+text = "Aizvērt"
+
+[node name="ControlIncorrectPassword" type="Control" parent="MarginContainer/ErrorMessages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainerBackground" type="PanelContainer" parent="MarginContainer/ErrorMessages/ControlIncorrectPassword"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -180.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ErrorMessages/ControlIncorrectPassword"]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -21.0
+offset_right = 180.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabelTitle" type="RichTextLabel" parent="MarginContainer/ErrorMessages/ControlIncorrectPassword/VBoxContainer"]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_5c1fb")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]Nepareiza parole"
+
+[node name="ButtonCancel" type="Button" parent="MarginContainer/ErrorMessages/ControlIncorrectPassword/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5c1fb")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fyoak")
+text = "Aizvērt"
+
+[node name="ControlEnterUsername" type="Control" parent="MarginContainer/ErrorMessages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainerBackground" type="PanelContainer" parent="MarginContainer/ErrorMessages/ControlEnterUsername"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -180.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ErrorMessages/ControlEnterUsername"]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -21.0
+offset_right = 180.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabelTitle" type="RichTextLabel" parent="MarginContainer/ErrorMessages/ControlEnterUsername/VBoxContainer"]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_5c1fb")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]Ievadiet lietotājvārdu"
+
+[node name="ButtonCancel" type="Button" parent="MarginContainer/ErrorMessages/ControlEnterUsername/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5c1fb")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fyoak")
+text = "Aizvērt"
+
+[node name="ControlAccountExists" type="Control" parent="MarginContainer/ErrorMessages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainerBackground" type="PanelContainer" parent="MarginContainer/ErrorMessages/ControlAccountExists"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -180.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ErrorMessages/ControlAccountExists"]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -21.0
+offset_right = 180.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabelTitle" type="RichTextLabel" parent="MarginContainer/ErrorMessages/ControlAccountExists/VBoxContainer"]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_5c1fb")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]Konts eksistē"
+
+[node name="ButtonCancel" type="Button" parent="MarginContainer/ErrorMessages/ControlAccountExists/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5c1fb")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fyoak")
+text = "Aizvērt"
+
+[node name="VBoxContainerButtons" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+script = ExtResource("2_ek1fu")
+
+[node name="ButtonSignIn" type="Button" parent="MarginContainer/VBoxContainerButtons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5c1fb")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fyoak")
+text = "Pierakstīties"
+
+[node name="ButtonSignUp" type="Button" parent="MarginContainer/VBoxContainerButtons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5c1fb")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fyoak")
+text = "Reģistrējieties"
+
+[node name="ButtonQuit" type="Button" parent="MarginContainer/VBoxContainerButtons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5c1fb")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fyoak")
+text = "Iziet
+"
+
+[node name="ControlSignUp" type="Control" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+script = ExtResource("3_h4ct1")
+
+[node name="PanelContainerBackground" type="PanelContainer" parent="MarginContainer/ControlSignUp"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -180.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ControlSignUp"]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -21.0
+offset_right = 180.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LineEditUsername" type="LineEdit" parent="MarginContainer/ControlSignUp/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5c1fb")
+theme_override_font_sizes/font_size = 24
+placeholder_text = "Ievadiet lietotājvārdu:"
+alignment = 1
+
+[node name="LineEditPassword" type="LineEdit" parent="MarginContainer/ControlSignUp/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5c1fb")
+theme_override_font_sizes/font_size = 24
+placeholder_text = "Ievadiet paroli:"
+alignment = 1
+secret = true
+secret_character = "*"
+
+[node name="ButtonSignUpFinish" type="Button" parent="MarginContainer/ControlSignUp/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5c1fb")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fyoak")
+text = "Reģistrēties"
+
+[node name="ButtonSignUpCancel" type="Button" parent="MarginContainer/ControlSignUp/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5c1fb")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fyoak")
+text = "Atcelt
+"
+
+[node name="ControlSignIn" type="Control" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+script = ExtResource("4_bgb1w")
+
+[node name="PanelContainerBackground" type="PanelContainer" parent="MarginContainer/ControlSignIn"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -180.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ControlSignIn"]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -21.0
+offset_right = 180.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LineEditUsername" type="LineEdit" parent="MarginContainer/ControlSignIn/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5c1fb")
+theme_override_font_sizes/font_size = 24
+placeholder_text = "Ievadiet lietotājvārdu:"
+alignment = 1
+
+[node name="LineEditPassword" type="LineEdit" parent="MarginContainer/ControlSignIn/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5c1fb")
+theme_override_font_sizes/font_size = 24
+placeholder_text = "Ievadiet paroli:"
+alignment = 1
+secret = true
+secret_character = "*"
+
+[node name="ButtonSignInFinish" type="Button" parent="MarginContainer/ControlSignIn/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5c1fb")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fyoak")
+text = "Pieslēgties
+"
+
+[node name="ButtonSignInCancel" type="Button" parent="MarginContainer/ControlSignIn/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5c1fb")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fyoak")
+text = "Atcelt
+"
+
+[connection signal="pressed" from="MarginContainer/ErrorMessages/ControlNoAccount/VBoxContainer/ButtonCancel" to="MarginContainer/ControlSignIn" method="_on_button_cancel_pressed"]
+[connection signal="pressed" from="MarginContainer/ErrorMessages/ControlIncorrectPassword/VBoxContainer/ButtonCancel" to="MarginContainer/ControlSignIn" method="_on_button_cancel_pressed"]
+[connection signal="pressed" from="MarginContainer/ErrorMessages/ControlEnterUsername/VBoxContainer/ButtonCancel" to="MarginContainer/ControlSignIn" method="_on_button_cancel_pressed"]
+[connection signal="pressed" from="MarginContainer/ErrorMessages/ControlAccountExists/VBoxContainer/ButtonCancel" to="MarginContainer/ControlSignIn" method="_on_button_cancel_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainerButtons/ButtonSignIn" to="MarginContainer/VBoxContainerButtons" method="_on_button_sign_in_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainerButtons/ButtonSignUp" to="MarginContainer/VBoxContainerButtons" method="_on_button_sign_up_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainerButtons/ButtonQuit" to="MarginContainer/VBoxContainerButtons" method="_on_button_quit_pressed"]
+[connection signal="pressed" from="MarginContainer/ControlSignUp/VBoxContainer/ButtonSignUpFinish" to="MarginContainer/ControlSignUp" method="_on_button_sign_up_finish_pressed"]
+[connection signal="pressed" from="MarginContainer/ControlSignUp/VBoxContainer/ButtonSignUpCancel" to="MarginContainer/ControlSignUp" method="_on_button_sign_up_cancel_pressed"]
+[connection signal="pressed" from="MarginContainer/ControlSignIn/VBoxContainer/ButtonSignInFinish" to="MarginContainer/ControlSignIn" method="_on_button_sign_in_finish_pressed"]
+[connection signal="pressed" from="MarginContainer/ControlSignIn/VBoxContainer/ButtonSignInCancel" to="MarginContainer/ControlSignIn" method="_on_button_sign_in_cancel_pressed"]
